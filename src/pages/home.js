@@ -10,6 +10,8 @@ import BoxUser from '<prefix>/components/BoxUser';
 
 import Link from 'next/link';
 
+import styles from '../styles/home.module.css'
+
 export default function Home()  {
   const [userData, setUserData] = useState([]);
 
@@ -31,12 +33,13 @@ export default function Home()  {
   return (
     <div>
       <h1>Lista de Usuários</h1>
-      <div>
+      <div className={styles.container_home}>
         {userData.length > 0 ? (
           userData.map((user) => (
             <BoxUser 
               key={user._id}
               nome={user.nome}
+              numero={user.numero}
               email={user.email}
               urlImg={user.urlImg}
             />
