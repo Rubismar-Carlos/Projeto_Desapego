@@ -6,16 +6,16 @@ import { FaWhatsapp } from 'react-icons/fa'
 
 const BoxUser = ({nome, numero, email, urlImg}) => {
 
-    const [mouseOpen, setMouseLeave] = useState(false)
+    const [mouseOpen, setMouseLeave] = useState(true)
 
     const handleMouseOpen = () => setMouseLeave(!mouseOpen)
 
-    const handleMouseLeave = () => setMouseLeave(true)
+    const handleMouseLeave = () => setMouseLeave(!mouseOpen)
 
   return (
     <div>
         <div className={styles.container_box_user}>
-            <div className={styles.box_user}>
+            <div className={styles.box_user} onMouseLeave={handleMouseLeave}>
                 <div className={styles.box_user_img}>
                     <img src={urlImg} alt="imagem de url fornecida pelo o usuário" />
                 </div>
