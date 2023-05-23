@@ -13,6 +13,8 @@ export default function Home() {
 
   const [nome, setNome] = useState("");
   const [numero, setNumero] = useState("")
+  const [email, setEmail] = useState("")
+  const [urlImg, setUrlImg] = useState("")
   const [msg, setMsg] = useState("")
 
 
@@ -32,10 +34,14 @@ export default function Home() {
       return setMsg("Digite o número de contato")
     }
 
-    console.log("Dados Atualizados", {nome, numero})  
+    if(email === "") {
+      return setMsg("Digite o email de contato")
+    }
+
+    console.log("Dados Atualizados", {nome, numero, email, urlImg})  
 
     axios
-      .post('/api/user', {nome, numero})
+      .post('/api/user', {nome, numero, email, urlImg})
       .then((response) => {
         console.log("Dados enviados")
       }).catch((err) => {
@@ -44,6 +50,8 @@ export default function Home() {
 
       setNome("")
       setNumero("")
+      setEmail("")
+      setUrlImg("")
 
 
   }
@@ -71,6 +79,18 @@ export default function Home() {
           value={numero}
           onChange={(e) => setNumero(e.target.value)}
         />
+        <input
+          type="text"
+          placeholder="Email"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+        />
+        <input
+          type="text"
+          placeholder="Url da imagem"
+          value={urlImg}
+          onChange={(e) => setUrlImg(e.target.value)}
+        />
 
         <button type="submit">Enviar</button>
       </form>
@@ -78,6 +98,7 @@ export default function Home() {
         </div>
         <button><Link href={'/home'}>Ir para home</Link></button>
       </main>
+
     </>
   )
 }
