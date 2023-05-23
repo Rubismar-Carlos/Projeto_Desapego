@@ -30,22 +30,10 @@ const getUsers = async () => {
     
   };
 
-  // deletar usuario
-  const deleteUser = async (userId) => {
-    try {
-      const deletedUser = await User.findByIdAndDelete(userId);
-      return deletedUser;
-    } catch (error) {
-      console.error(error);
-      throw new Error('Erro ao deletar usuário');
-    }
-  };
-
 const userController = {
     
     saveUser,
     getUsers,
-    deleteUser
 
 }
 

@@ -13,11 +13,24 @@ export default function Home() {
 
   const [nome, setNome] = useState("");
   const [numero, setNumero] = useState("")
+  const [msg, setMsg] = useState("")
 
 
   const handleSubmit = async(e) => {
 
     e.preventDefault();
+
+    setTimeout(() => {
+      setMsg("")
+    },3000)
+
+    if(nome === "") {
+      return setMsg("Digite um nome")
+    }
+
+    if(numero === "") {
+      return setMsg("Digite o número de contato")
+    }
 
     console.log("Dados Atualizados", {nome, numero})  
 
@@ -61,6 +74,7 @@ export default function Home() {
 
         <button type="submit">Enviar</button>
       </form>
+      <p>{msg}</p>
         </div>
         <button><Link href={'/home'}>Ir para home</Link></button>
       </main>
