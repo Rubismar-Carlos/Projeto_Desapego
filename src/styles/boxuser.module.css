@@ -1,0 +1,66 @@
+.container_box_user {
+
+}
+
+.box_user {
+    width: 250px;
+    height: 250px;
+    position: absolute;
+    z-index: 1;
+}
+
+.box_user_img {
+    width: 100%;
+    height: 100%;
+}
+
+.box_user img {
+    width: 100%;
+    height: 100%;
+}
+
+.container_apresentacao {
+    display: flex;
+    gap: 20px;
+    background-color: aqua;
+    border: 1px solid black;
+    border-radius: 0px 20px 20px 0px;
+}
+
+.box_apresentacao_user {
+    width: 250px;
+    height: 250px;
+    background-color: rgba(0, 0, 0, 0.384);
+    z-index: 10;
+    position: relative;
+    cursor: pointer;
+}
+
+.box_apresentacao_user:hover {
+    opacity: 0;
+    transition: 1s;
+}
+
+.box_dados_user {
+    width: 150px;
+    height: 250px;
+}
+
+.box_dados_user_ {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.dados_user {
+    margin-right: 30px;
+}
+
+.active {
+    display: none;
+    transition: 2s;
+}
+
+.inactive {
+    opacity: 1;
+    transition: 2s;
+}
