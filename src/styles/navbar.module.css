@@ -44,6 +44,7 @@
         display: none;
     }
 
+    /* abrir e fechar o menu mobile */
     .menu_ativado {
         opacity: 1;
     }
@@ -52,8 +53,37 @@
         display: none;
     }
 
+    /* tamanho e cor dos botões que abre e fecha o menu mobile */
     .btn_menu_mobile svg {
         font-size: 2em;
     }
+
+    .btn_close_menu, .btn_open_menu {
+        color: red;
+    }
+
+    /* div do menu mobile */
+    .menu_mobile {
+        position: absolute;
+        z-index: 12;
+        height: 89%;
+        width: 100%;
+        top: 11%;
+        background-color: black;
+        text-align: center;
+        transition: 1s;
+    }
+
+    .menu_mobile ul {
+        display: flex;
+        flex-direction: column;
+        margin-top: 30px;
+        gap: 20px;
+    }
+
+    .menu_mobile a {
+        color: white;
+    }
+
 
 }

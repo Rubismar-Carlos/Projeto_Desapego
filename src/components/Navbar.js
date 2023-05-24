@@ -59,8 +59,8 @@ export default function Navbar() {
                 </ul>
             </nav>
             <div className={styles.btn_menu_mobile}>
-                {btnVisivel && < RxHamburgerMenu onClick={handleOpenMenu}/>}
-                {!btnVisivel && < AiOutlineClose  onClick={handleCloseMenu}/>}
+                {btnVisivel && < RxHamburgerMenu onClick={handleOpenMenu} className={styles.btn_open_menu} />}
+                {!btnVisivel && < AiOutlineClose  onClick={handleCloseMenu} className={styles.btn_close_menu} />}
             </div>
         </div>
         <div className={`${styles.menu_mobile} ${openMenu ? `${styles.menu_ativado}` : `${styles.menu_desativado}` }`}>
