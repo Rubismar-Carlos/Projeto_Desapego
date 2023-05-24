@@ -8,7 +8,6 @@ import Link from 'next/link';
 
 import styles from '../styles/navbar.module.css'
 
-import Navbar from '<prefix>/components/Navbar';
 import Layout from './layout';
 
 
@@ -72,9 +71,12 @@ export default function Home() {
           onChange={(e) => setNome(e.target.value)}
         />
         <input
-          type="number"
-          placeholder="(XX) X XXXX-XXXX"
+          type="tel"
+          placeholder="(DD) X XXXX-XXXX"
+          pattern="\([0-9]{2}\) [0-9]{1} [0-9]{4}-[0-9]{4}"
+          maxlength={11}
           value={numero}
+          required 
           onChange={(e) => setNumero(e.target.value)}
         />
         <input
@@ -84,7 +86,7 @@ export default function Home() {
           onChange={(e) => setEmail(e.target.value)}
         />
         <input
-          type="text"
+          type="url"
           placeholder="Url da imagem"
           value={urlImg}
           onChange={(e) => setUrlImg(e.target.value)}
