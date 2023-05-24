@@ -11,6 +11,7 @@ import BoxUser from '<prefix>/components/BoxUser';
 import Link from 'next/link';
 
 import styles from '../styles/home.module.css'
+import Layout from './layout';
 
 export default function Home()  {
   const [userData, setUserData] = useState([]);
@@ -31,7 +32,8 @@ export default function Home()  {
   }, []);
 
   return (
-    <div>
+    <Layout>
+        <div>
       <h1>Lista de Usuários</h1>
       <div className={styles.container_home}>
         {userData.length > 0 ? (
@@ -51,5 +53,6 @@ export default function Home()  {
       <button><Link href={'/'} target={'_self'} >Retornar</Link></button>
     
     </div>
+    </Layout>
   );
 };

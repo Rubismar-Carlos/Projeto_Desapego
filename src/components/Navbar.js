@@ -4,6 +4,8 @@ import React, { useState } from "react"
 // ccs module na página styles
 import styles from '../styles/navbar.module.css'
 
+
+
 import Link from "next/link"
 
 // react icons
@@ -14,12 +16,25 @@ import { AiOutlineClose } from 'react-icons/ai'
 export default function Navbar() {
     
     const [openMenu, setOpenMenu] = useState(false)
-    const [visivel, setVisivel] = useState(false)
+    const [btnVisivel, setBtnVisivel] = useState(true)
 
     const handleOpenMenu = () => {
 
         setOpenMenu(!openMenu)
 
+        setBtnVisivel(false)
+
+        console.log("Menu Open")
+
+    }
+
+    const handleCloseMenu = () => {
+
+        setOpenMenu(false)
+
+        setBtnVisivel(true)
+
+        console.log("Menu Closed")
 
     }
 
@@ -44,8 +59,8 @@ export default function Navbar() {
                 </ul>
             </nav>
             <div className={styles.btn_menu_mobile}>
-                < RxHamburgerMenu onClick={handleOpenMenu}/>
-                < AiOutlineClose />
+                {btnVisivel && < RxHamburgerMenu onClick={handleOpenMenu}/>}
+                {!btnVisivel && < AiOutlineClose  onClick={handleCloseMenu}/>}
             </div>
         </div>
         <div className={`${styles.menu_mobile} ${openMenu ? `${styles.menu_ativado}` : `${styles.menu_desativado}` }`}>
