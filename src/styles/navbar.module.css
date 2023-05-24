@@ -1,0 +1,8 @@
+/* navbar css geral */
+.header {
+    display: flex;
+}
+
+.btn_menu_mobile {
+    display: none;
+}
