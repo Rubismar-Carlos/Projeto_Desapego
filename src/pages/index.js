@@ -75,7 +75,7 @@ export default function Home() {
         />
         <input
           type="number"
-          placeholder="Contato"
+          placeholder="(XX) X XXXX-XXXX"
           value={numero}
           onChange={(e) => setNumero(e.target.value)}
         />
