@@ -1,0 +1,75 @@
+/* efeito de loading quando enviar o formulario */
+  
+  .loading {
+    margin-top: 20px;
+    margin-right: auto;
+    margin-left: 50px;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    border: 3px solid #ccc;
+    border-top-color: green;
+    animation: spin 0.5s infinite linear;
+  }
+
+  .loading_ativado {
+    background-color: transparent;
+    color: transparent;
+  }
+
+  @keyframes spin {
+    from {
+      transform: translate(-50%, -50%) rotate(0deg);
+    }
+    to {
+      transform: translate(-50%, -50%) rotate(360deg);
+    }
+  }
+  
+
+/* box do formulario */
+.box_form {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    min-width: 350px;
+}
+
+.form input {
+    border: none;
+    border-bottom: 1px solid black;
+    padding: 10px;
+}
+
+.form input::placeholder {
+    font-size: 1.1em;
+    font-style: italic;
+    color: lightgray;
+}
+
+.form button {
+    width: 100px;
+    height: 40px;
+    margin: 20px auto;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+}
+
+/* mensagem de erro nos inputs */
+.msg_error {
+    color: red;
+    font-size: 1.1em;
+}
+
+.msg_sucesso {
+    color: green;
+    font-size: 1.1em;
+}

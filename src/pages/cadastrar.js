@@ -6,9 +6,9 @@ import axios from 'axios';
 
 import Link from 'next/link';
 
-import styles from '../styles/navbar.module.css'
-
 import Layout from './layout';
+
+import styles from '../styles/cadastrar.module.css'
 
 
 
@@ -18,31 +18,54 @@ export default function Home() {
   const [numero, setNumero] = useState("")
   const [email, setEmail] = useState("")
   const [urlImg, setUrlImg] = useState("")
-  const [msg, setMsg] = useState("")
-
+  const [msgError, setMsgError] = useState("")
+  const [msgSucesso, setMsgSucesso] = useState("")
+  const [loading, setLoading] = useState(false)
 
   const handleSubmit = async(e) => {
 
     e.preventDefault();
 
     setTimeout(() => {
-      setMsg("")
+      setMsgError("")
+      setMsgSucesso("")
     },3000)
 
+    // Validando que todos os inputs recebam dados
     if(nome === "") {
-      return setMsg("Digite um nome")
+      return setMsgError("Digite seu nome")
     }
 
     if(numero === "") {
-      return setMsg("Digite o número de contato")
+      return setMsgError("Digite seu número de telefone")
     }
 
     if(email === "") {
-      return setMsg("Digite o email de contato")
+      return setMsgError("Digite seu e-mail")
     }
 
-    console.log("Dados Atualizados", {nome, numero, email, urlImg})  
+    if(urlImg === "") {
+      return setMsgError("Digite a url da foto")
+    }
 
+    setLoading(true)
+
+    // efeito de carregamento loading
+    setTimeout(() => {
+
+      console.log("Dados Atualizados", {nome, numero, email, urlImg})  
+
+      // limpando os inputs assim que for enviado para o banco de dados
+      setNome("")
+      setNumero("")
+      setEmail("")
+      setUrlImg("")
+
+      setLoading(false)
+
+      setMsgSucesso("Dados enviado com sucesso!")
+    }, 1500 )
+    
     axios
       .post('/api/user', {nome, numero, email, urlImg})
       .then((response) => {
@@ -51,10 +74,7 @@ export default function Home() {
         console.log(err)
       })
 
-      setNome("")
-      setNumero("")
-      setEmail("")
-      setUrlImg("")
+      
 
 
   }
@@ -62,26 +82,32 @@ export default function Home() {
   return (
     < Layout>
         <main>
-        <div>
+        <div className={styles.box_form}>
+          <div className={styles.box_msg}>
+            <p className={styles.msg_error} >{msgError}</p>
+            <p className={styles.msg_sucesso}>{msgSucesso}</p>
+          </div>
         <form onSubmit={handleSubmit} className={styles.form}>
         <input
           type="text"
           placeholder="Nome"
           value={nome}
+          minLength={3}
           onChange={(e) => setNome(e.target.value)}
         />
         <input
           type="tel"
-          placeholder="(DD) X XXXX-XXXX"
-          pattern="\([0-9]{2}\) [0-9]{1} [0-9]{4}-[0-9]{4}"
-          maxlength={11}
+          placeholder="Telefone Ex: (DDD) X XXXX-XXXX"
+          inputMode='numeric'
+          pattern="[0-9]*"
+          maxLength={"11"}
           value={numero}
-          required 
           onChange={(e) => setNumero(e.target.value)}
         />
         <input
           type="text"
           placeholder="Email"
+          pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
         />
@@ -92,11 +118,16 @@ export default function Home() {
           onChange={(e) => setUrlImg(e.target.value)}
         />
 
-        <button type="submit">Enviar</button>
+       <button type="submit" className={loading ? `${styles.loading_ativado}` : `${styles.loading_desativado}`} >
+        {loading ? (
+          <div className={styles.loading}></div>
+        ) : (
+          "Enviar"
+        )}
+       </button>
       </form>
-      <p>{msg}</p>
         </div>
-        <button><Link href={'/home'}>Ir para home</Link></button>
+        
       </main>
     </Layout>
   )

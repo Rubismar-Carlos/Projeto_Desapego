@@ -10,8 +10,9 @@ import BoxUser from '<prefix>/components/BoxUser';
 
 import Link from 'next/link';
 
-import styles from '../styles/home.module.css'
 import Layout from './layout';
+
+import styles from '../styles/index.module.css'
 
 export default function Home()  {
   const [userData, setUserData] = useState([]);
