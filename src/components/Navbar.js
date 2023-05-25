@@ -52,7 +52,7 @@ export default function Navbar() {
                         </Link>
                     </li>
                     <li>
-                        <Link href={'/home'} target={"_self"}>
+                        <Link href={'/cadastrar'} target={"_self"}>
                             CADASTRAR
                         </Link>
                     </li>

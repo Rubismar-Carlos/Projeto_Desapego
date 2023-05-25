@@ -1,103 +1,58 @@
 'use client'
 
-import { useState} from 'react'
+import React, { useState, useEffect } from 'react';
+
+import { useRouter } from 'next/router';
 
 import axios from 'axios';
 
+import BoxUser from '<prefix>/components/BoxUser';
+
 import Link from 'next/link';
 
-import styles from '../styles/navbar.module.css'
-
+import styles from '../styles/home.module.css'
 import Layout from './layout';
 
+export default function Home()  {
+  const [userData, setUserData] = useState([]);
 
+  const  router = useRouter();
 
-export default function Home() {
+  useEffect(() => {
+    const getUserData = async () => {
+      try {
+        const response = await axios.get('/api/getUser');
+        setUserData(response.data);
+      } catch (error) {
+        console.log(error);
+      }
+    };
 
-  const [nome, setNome] = useState("");
-  const [numero, setNumero] = useState("")
-  const [email, setEmail] = useState("")
-  const [urlImg, setUrlImg] = useState("")
-  const [msg, setMsg] = useState("")
-
-
-  const handleSubmit = async(e) => {
-
-    e.preventDefault();
-
-    setTimeout(() => {
-      setMsg("")
-    },3000)
-
-    if(nome === "") {
-      return setMsg("Digite um nome")
-    }
-
-    if(numero === "") {
-      return setMsg("Digite o número de contato")
-    }
-
-    if(email === "") {
-      return setMsg("Digite o email de contato")
-    }
-
-    console.log("Dados Atualizados", {nome, numero, email, urlImg})  
-
-    axios
-      .post('/api/user', {nome, numero, email, urlImg})
-      .then((response) => {
-        console.log("Dados enviados")
-      }).catch((err) => {
-        console.log(err)
-      })
-
-      setNome("")
-      setNumero("")
-      setEmail("")
-      setUrlImg("")
-
-
-  }
+    getUserData();
+  }, []);
 
   return (
-    < Layout>
-        <main>
+    <Layout>
         <div>
-        <form onSubmit={handleSubmit} className={styles.form}>
-        <input
-          type="text"
-          placeholder="Nome"
-          value={nome}
-          onChange={(e) => setNome(e.target.value)}
-        />
-        <input
-          type="tel"
-          placeholder="(DD) X XXXX-XXXX"
-          pattern="\([0-9]{2}\) [0-9]{1} [0-9]{4}-[0-9]{4}"
-          maxlength={11}
-          value={numero}
-          required 
-          onChange={(e) => setNumero(e.target.value)}
-        />
-        <input
-          type="text"
-          placeholder="Email"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-        />
-        <input
-          type="url"
-          placeholder="Url da imagem"
-          value={urlImg}
-          onChange={(e) => setUrlImg(e.target.value)}
-        />
-
-        <button type="submit">Enviar</button>
-      </form>
-      <p>{msg}</p>
-        </div>
-        <button><Link href={'/home'}>Ir para home</Link></button>
-      </main>
+      <h1>Lista de Usuários</h1>
+      <div className={styles.container_home}>
+        {userData.length > 0 ? (
+          userData.map((user) => (
+            <BoxUser 
+              key={user._id}
+              nome={user.nome}
+              numero={user.numero}
+              email={user.email}
+              urlImg={user.urlImg}
+            />
+          ))
+        ) : (
+          <p>Carregando...</p>
+        )}
+      </div>
+      <button><Link href={'/'} target={'_self'} >Retornar</Link></button>
+    
+    </div>
     </Layout>
-  )
-}
+  );
+};
