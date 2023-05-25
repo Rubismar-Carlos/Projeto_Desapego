@@ -44,14 +44,21 @@
 
 .form input {
     border: none;
-    border-bottom: 1px solid black;
+    border-bottom: 1px solid rgb(0, 250, 0);
     padding: 10px;
+    background-color: transparent;
+    color: rgb(0, 250, 0);
+    font-size: 1.2em;
 }
 
 .form input::placeholder {
     font-size: 1.1em;
     font-style: italic;
-    color: lightgray;
+    color: rgb(0, 250, 0);
+}
+
+.form input:focus {
+  outline: none;
 }
 
 .form button {
@@ -63,13 +70,13 @@
     cursor: pointer;
 }
 
-/* mensagem de erro nos inputs */
+/* mensagem de erro e sucesso nos inputs */
 .msg_error {
     color: red;
     font-size: 1.1em;
 }
 
 .msg_sucesso {
-    color: green;
+    color: rgb(0, 250, 0);
     font-size: 1.1em;
 }

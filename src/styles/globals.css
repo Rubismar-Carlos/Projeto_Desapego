@@ -9,4 +9,12 @@ a {
 
 body {
     font-family: 'Roboto', sans-serif;
+    background-image: url("../../public/2641054.gif");
+    background-repeat: no-repeat;
+}
+
+@media (min-width: 800px) {
+    body {
+        background-size: 100%;
+    }
 }
