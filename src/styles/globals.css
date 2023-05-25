@@ -9,8 +9,10 @@ a {
 
 body {
     font-family: 'Roboto', sans-serif;
-    background-image: url("../../public/2641054.gif");
+    background: linear-gradient(to top, #381b66 50%, white 10%, #6b56c5 40%);
     background-repeat: no-repeat;
+    height: 100vh;
+    
 }
 
 @media (min-width: 800px) {

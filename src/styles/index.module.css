@@ -1,4 +1,40 @@
+/* index vai ser o layuot da page layout.js */
+.index {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+/*banner da page */
+.banner {
+    text-align: center;
+    margin: 100px 0px 100px 0px;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+/* span de titulos do slide */
+.span_title {
+    font-size: 2em;
+    font-weight: bolder;
+    color: white;
+    margin-left: 20px;
+}
+
+/* slide dos produtos cadastrados */
 .container_home {
     display: flex;
-    flex-wrap: wrap;
+    gap: 20px;
+    overflow-x: auto;
+    padding: 20px;
+    margin-bottom: 50px;
+}
+
+/* layout desktop */
+@media (min-width: 800px) {
+    
+    .index {
+        gap: 80px;
+    }
+
 }
