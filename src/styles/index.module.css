@@ -26,6 +26,12 @@
     margin-left: 20px;
 }
 
+.p {
+    font-size: 1em;
+    color: rgba(172, 255, 47, 0.61);
+    margin-left: 20px;
+}
+
 /* slide dos produtos cadastrados */
 .container_home {
     margin-left: 30px;

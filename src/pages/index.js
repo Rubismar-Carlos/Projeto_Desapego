@@ -41,6 +41,8 @@ export default function Home()  {
         </div>
         <div>
           <span className={styles.span_title} >Produtos</span>
+          <p className={styles.p}>Gostou do produto?</p>
+          <p className={styles.p}>Clique na foto para obter acesso aos dados do proprietário. Você pode entrar em contato através do WhatsApp ou e-mail.</p>
         <div className={styles.container_home}>
           <div className={styles.container_slide}>
             {userData.length > 0 ? (
