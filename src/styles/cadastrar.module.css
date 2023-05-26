@@ -47,14 +47,14 @@
     border-bottom: 1px solid lightgrey;
     padding: 10px;
     background-color: transparent;
-    color: lightgray;
+    color: greenyellow;
     font-size: 1em;
 }
 
 .form input::placeholder {
-    font-size: 1.1em;
+    font-size: 1em;
     font-style: italic;
-    color: lightgray;
+    color: greenyellow;
 }
 
 .form input:focus {
@@ -68,6 +68,8 @@
     border: none;
     border-radius: 20px;
     cursor: pointer;
+    background-color: greenyellow;
+    color: rgb(0, 110, 110);
 }
 
 /* mensagem de erro e sucesso nos inputs */

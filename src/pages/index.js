@@ -37,7 +37,7 @@ export default function Home()  {
       <div className={styles.index}>
         <div className={styles.banner}>
           <h1>DESAPEGO</h1>
-          <p>Site desapego, poste seu produto e deixa que a gente vende ele para você.</p>
+          <p>Anuncie o seu produto e deixe que nós o vendamos para você.</p>
         </div>
         <div>
           <span className={styles.span_title} >Produtos</span>
