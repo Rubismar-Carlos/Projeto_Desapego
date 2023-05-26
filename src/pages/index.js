@@ -1,6 +1,6 @@
 'use client'
 
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect} from 'react';
 
 import { useRouter } from 'next/router';
 
@@ -42,19 +42,21 @@ export default function Home()  {
         <div>
           <span className={styles.span_title} >Produtos</span>
         <div className={styles.container_home}>
-          {userData.length > 0 ? (
-            userData.map((user) => (
-              <BoxUser 
-                key={user._id}
-                nome={user.nome}
-                numero={user.numero}
-                email={user.email}
-                urlImg={user.urlImg}
-              />
-            ))
-          ) : (
-            <p>Carregando...</p>
-          )}
+          <div className={styles.container_slide}>
+            {userData.length > 0 ? (
+              userData.map((user) => (
+                <BoxUser 
+                  key={user._id}
+                  nome={user.nome}
+                  numero={user.numero}
+                  email={user.email}
+                  urlImg={user.urlImg}
+                />
+              ))
+            ) : (
+              <p>Carregando...</p>
+            )}
+          </div>
         </div>
       </div>
       </div>

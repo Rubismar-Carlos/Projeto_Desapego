@@ -23,11 +23,17 @@
 
 /* slide dos produtos cadastrados */
 .container_home {
-    display: flex;
+    margin-left: 30px;
+    margin-right: 30px;
     gap: 20px;
-    overflow-x: auto;
+    overflow: auto;
     padding: 20px;
     margin-bottom: 50px;
+}
+
+.container_slide {
+   display: flex;
+   gap: 20px;
 }
 
 /* layout desktop */
