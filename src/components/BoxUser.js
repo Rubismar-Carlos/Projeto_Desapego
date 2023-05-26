@@ -2,8 +2,10 @@ import React, { useState } from "react"
 
 import styles from '../styles/boxuser.module.css'
 
+import Link from "next/link"
+
 import { FaWhatsapp } from 'react-icons/fa'
-import { AiOutlineClose } from 'react-icons/ai'
+import { AiOutlineClose, AiOutlineMail } from 'react-icons/ai'
 
 
 const BoxUser = ({nome, numero, email, urlImg}) => {
@@ -33,9 +35,9 @@ const BoxUser = ({nome, numero, email, urlImg}) => {
                         </div>
                         <div className={styles.informacoes_modal}>
                             <span className={styles.span_user}>{nome}</span>
-                            <span className={styles.span_user}>< FaWhatsapp /> {numero}</span>
-                            <span className={styles.span_user}>{email}</span>
+                            <span className={styles.span_user}><Link href={`https://wa.me/55${numero}`} target={"_blank"}><div>< FaWhatsapp /> </div>{numero}</Link></span>
                         </div>
+                        <span className={styles.span_user}> <Link href={`mailto:${email}`} target={"_blank"}><div><AiOutlineMail /></div> {email}</Link></span>
                     </div>
                 </div>
             </div>

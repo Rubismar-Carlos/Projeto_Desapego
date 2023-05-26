@@ -30,10 +30,21 @@
 }
 
 /* span title do usuário */
-.span_user {
+.span_user, .span_user > a {
     font-size: 1.2em;
-    color: rgb(0, 255, 0);
+    color: greenyellow;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    gap: 5px;
+    align-items: center;
 }
+
+.span_user svg {
+    font-size: 1.2em;
+    padding-top: 2px;
+}
+
 
 /* css do modal */
 .modal_open {
@@ -135,9 +146,9 @@
 
     .informacoes_modal {
         display: flex;
-        flex-direction: column;
+        justify-content: center;
         align-items: center;
-        gap: 5px;
+        gap: 50px;
         width: 100%;
         height: 40px;
     }
