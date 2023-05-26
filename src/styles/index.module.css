@@ -27,8 +27,9 @@
 }
 
 .p {
+    padding-top: 5px;
     font-size: 1em;
-    color: rgba(172, 255, 47, 0.61);
+    color: greenyellow;
     margin-left: 20px;
 }
 
