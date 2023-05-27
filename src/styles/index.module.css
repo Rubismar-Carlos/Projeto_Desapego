@@ -23,14 +23,15 @@
     font-size: 2em;
     font-weight: bolder;
     color: greenyellow;
-    margin-left: 20px;
+    margin-left: 50px;
 }
 
 .p {
     padding-top: 5px;
+    padding-right: 10px;
     font-size: 1em;
     color: greenyellow;
-    margin-left: 20px;
+    margin-left: 50px;
 }
 
 /* slide dos produtos cadastrados */
