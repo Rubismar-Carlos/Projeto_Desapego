@@ -8,7 +8,7 @@ import { FaWhatsapp } from 'react-icons/fa'
 import { AiOutlineClose, AiOutlineMail } from 'react-icons/ai'
 
 
-const BoxUser = ({nome, numero, email, urlImg}) => {
+const BoxUser = ({nome, numero, email, urlImg, produto}) => {
 
     const [openModal, setOpenModal] = useState(false)
 
@@ -19,7 +19,7 @@ const BoxUser = ({nome, numero, email, urlImg}) => {
         <div className={styles.container_box_user}>
             <div className={styles.box_user}>
                 <div className={styles.box_user_img} onClick={handleOpenModal}>
-                    <div className={styles.box_user_produto}><span className={styles.span_user}>Nome</span></div>
+                    <div className={styles.box_user_produto}><span className={styles.span_user}>{produto}</span></div>
                     <img src={urlImg} alt="imagem de url fornecida pelo o usuário" />
                 </div>
             </div>

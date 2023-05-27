@@ -6,6 +6,7 @@ const UserSchema = Schema({
     numero: {type: String, required: true},
     email: {type: String, required: true},
     urlImg: {type: String, required: true},
+    produto: {type: String, required: true},
     
 })
 

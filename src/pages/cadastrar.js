@@ -4,8 +4,6 @@ import { useState} from 'react'
 
 import axios from 'axios';
 
-import Link from 'next/link';
-
 import Layout from './layout';
 
 import styles from '../styles/cadastrar.module.css'
@@ -18,6 +16,7 @@ export default function Home() {
   const [numero, setNumero] = useState("")
   const [email, setEmail] = useState("")
   const [urlImg, setUrlImg] = useState("")
+  const [produto, setProduto] = useState("")
   const [msgError, setMsgError] = useState("")
   const [msgSucesso, setMsgSucesso] = useState("")
   const [loading, setLoading] = useState(false)
@@ -44,6 +43,11 @@ export default function Home() {
       return setMsgError("Digite seu e-mail")
     }
 
+    if(produto === "") {
+      return setMsgError("Digite o nome do produto")
+    }
+
+
     if(urlImg === "") {
       return setMsgError("Digite a url da foto")
     }
@@ -53,13 +57,14 @@ export default function Home() {
     // efeito de carregamento loading
     setTimeout(() => {
 
-      console.log("Dados Atualizados", {nome, numero, email, urlImg})  
+      console.log("Dados Atualizados", {nome, numero, email, urlImg, produto})  
 
       // limpando os inputs assim que for enviado para o banco de dados
       setNome("")
       setNumero("")
       setEmail("")
       setUrlImg("")
+      setProduto("")
 
       setLoading(false)
 
@@ -67,7 +72,7 @@ export default function Home() {
     }, 1500 )
     
     axios
-      .post('/api/user', {nome, numero, email, urlImg})
+      .post('/api/user', {nome, numero, email, urlImg, produto})
       .then((response) => {
         console.log("Dados enviados")
       }).catch((err) => {
@@ -110,6 +115,12 @@ export default function Home() {
           pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
+        />
+        <input
+          type="text"
+          placeholder="Nome do produto"
+          value={produto}
+          onChange={(e) => setProduto(e.target.value)}
         />
         <input
           type="url"

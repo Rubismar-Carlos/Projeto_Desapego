@@ -53,6 +53,7 @@ export default function Home()  {
                   numero={user.numero}
                   email={user.email}
                   urlImg={user.urlImg}
+                  produto={user.produto}
                 />
               ))
             ) : (
