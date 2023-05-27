@@ -19,6 +19,7 @@ const BoxUser = ({nome, numero, email, urlImg}) => {
         <div className={styles.container_box_user}>
             <div className={styles.box_user}>
                 <div className={styles.box_user_img} onClick={handleOpenModal}>
+                    <div className={styles.box_user_produto}><span className={styles.span_user}>Nome</span></div>
                     <img src={urlImg} alt="imagem de url fornecida pelo o usuário" />
                 </div>
             </div>

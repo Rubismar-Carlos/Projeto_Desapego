@@ -56,7 +56,7 @@ export default function Home()  {
                 />
               ))
             ) : (
-              <p>Carregando...</p>
+              <div className={styles.loading}></div>
             )}
           </div>
         </div>

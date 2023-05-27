@@ -56,3 +56,26 @@
     }
 
 }
+
+/* efeito loading enquanto o banco de dados não responde */
+.loading {
+    margin-top: 20px;
+    margin-right: auto;
+    margin-left: 50px;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    border: 3px solid #ccc;
+    border-top-color: rgb(0, 255, 0);
+    animation: spin 0.5s infinite linear;
+  }
+
+  @keyframes spin {
+    from {
+      transform: translate(-50%, -50%) rotate(0deg);
+    }
+    to {
+      transform: translate(-50%, -50%) rotate(360deg);
+    }
+  }
+  
