@@ -8,6 +8,7 @@ import Layout from './layout';
 
 import styles from '../styles/cadastrar.module.css'
 
+import Head from 'next/head';
 
 
 export default function Home() {
@@ -86,6 +87,9 @@ export default function Home() {
 
   return (
     < Layout>
+        <Head>
+          <title>Desapego | Cadastrar</title>
+        </Head>
         <main>
         <div className={styles.box_form}>
           <div className={styles.box_msg}>

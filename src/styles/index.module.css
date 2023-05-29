@@ -82,3 +82,14 @@
     }
   }
   
+
+  /* layout mobile */
+
+  @media (max-width: 400px) {
+    
+    /* imagem do banner */
+    .banner img {
+        width: 100%;
+    }
+
+  }

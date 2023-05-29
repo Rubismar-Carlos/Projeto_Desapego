@@ -42,7 +42,7 @@ export default function Navbar() {
     return <div>
         <div className={styles.header}>
             <div className={styles.logo}>
-                <img src="" alt="" />
+                <Link href={'/'} target={"_self"}><img src="/images/banner.png" alt="Imagem da logo" /></Link>
             </div>
             <nav>
                 <ul>

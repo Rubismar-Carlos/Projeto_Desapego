@@ -8,7 +8,7 @@ import axios from 'axios';
 
 import BoxUser from '<prefix>/components/BoxUser';
 
-import Link from 'next/link';
+import Head from 'next/head';
 
 import Layout from './layout';
 
@@ -34,9 +34,12 @@ export default function Home()  {
 
   return (
     <Layout>
+      <Head>
+        <title>Desapego</title>
+      </Head>
       <div className={styles.index}>
         <div className={styles.banner}>
-          <h1>DESAPEGO</h1>
+          <img src="/images/banner.png" alt="" />
           <p>Anuncie o seu produto e deixe que nós o vendamos para você.</p>
         </div>
         <div>
